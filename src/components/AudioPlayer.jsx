@@ -134,8 +134,8 @@ function AudioPlayer(props) {
 				""
 			) : (
 				<div className="max-h-[150px] w-full">
-					<div className="">
-						<div className="flex relative w-[40%] m-auto">
+					<div>
+						<div className="flex relative w-[40%] mt-5 m-auto">
 							<input
 								type="range"
 								value={currentTime}
