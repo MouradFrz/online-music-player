@@ -23,6 +23,7 @@ function AudioPlayer(props) {
 			? Math.floor(Math.random() * songList.length)
 			: (curSongIndex + 1) % songList.length;
 		setCurrentSong(songList[newSongIndex]);
+		setPlaying(true)
 	};
 	const prevSong = () => {
 		const curSongIndex = songList.indexOf(currentSong);
@@ -31,6 +32,7 @@ function AudioPlayer(props) {
 			: (curSongIndex - 1 + songList.length) % songList.length;
 
 		setCurrentSong(songList[newSongIndex]);
+		setPlaying(true)
 	};
 	const randomizer = () => {
 		setRandomize((prev) => !prev);
@@ -111,6 +113,7 @@ function AudioPlayer(props) {
 					<div
 						onClick={() => {
 							setCurrentSong(el);
+							setPlaying(true)
 						}}
 						className={`bg-gray-100
 						${el.src === currentSong.src ? "bg-gray-200" : ""}
@@ -209,6 +212,7 @@ function AudioPlayer(props) {
 				type="file"
 				id="file-selector"
 				className="hidden"
+				accept=".mp3,audio/*"
 				onChange={(ev) => {
 					loadSongs(ev);
 				}}
